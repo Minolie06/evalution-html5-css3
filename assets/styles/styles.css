@@ -27,10 +27,6 @@ h1 {
   color: var(--color-dark);
 }
 
-h1~.subtitle {
-  font-size: 1.25rem;
-  font-family: "Myriad Pro";
-}
 
 h2 {
   font-family: "Montserrat";
@@ -39,6 +35,22 @@ h2 {
   color: var(--color-dark);
   text-transform: uppercase;
   margin-bottom: 1.875rem;
+}
+
+h3 {
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: 1.125rem
+}
+
+h1~.subtitle,
+h2~.subtitle,
+h3~.subtitle {
+  font-family: "Myriad Pro";
+  font-size: 1.25rem;
+  line-height: 1.5rem;
 }
 
 .section {
@@ -53,7 +65,7 @@ h2 {
   }
 }
 
-/*----BUTTONS ----*/
+/*----GENERIC ----*/
 
 .btn {
   background-color: var(--color-accent);
@@ -63,6 +75,17 @@ h2 {
   font-family: "Montserrat";
   font-size: 1rem;
   font-weight: 500;
+}
+
+.text-center-mobile {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  
+  .text-center-mobile {
+    text-align: left;
+  }
 }
 
 /*----NAVBAR ----*/
@@ -100,12 +123,11 @@ h2 {
 
 .header {
   padding-top: 3.375rem;
-  text-align: center;
   display: flex;
   flex-direction: column;
 }
 
-.header .title~.subtitle {
+.header h1~.subtitle {
   margin: 1.875rem 0;
 }
 
@@ -153,8 +175,8 @@ h2 {
   width: 100%;
   height: 100%;
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -184,13 +206,129 @@ h2 {
 .section.portfolio .portfolio-grid .portfolio-grid-item img {
   object-fit: cover;
   object-position: center 75%;
-  aspect-ratio : 1/1;
-  vertical-align: bottom; /* to remove extra-space under img */
+  aspect-ratio: 1/1;
+  vertical-align: bottom;
 }
 
 .section.portfolio .portfolio-btn-more {
   margin: 0 auto;
   display: block;
+}
+
+/*----ABOUT----*/
+
+.section.about .about-grid {
+  display: grid;
+  grid-template-areas:
+    "person1"
+    "person2"
+    "infos";
+  gap: 2rem;
+  margin: 2rem auto;
+}
+
+.section.about .about-grid .about-grid-item.person1 {
+  grid-area: person1;
+}
+
+.section.about .about-grid .about-grid-item.person2 {
+  grid-area: person2;
+}
+
+.section.about .about-grid .about-grid-item.infos {
+  grid-area: infos;
+
+}
+
+.section.about .about-grid .about-grid-item {
+  margin: 0 6rem;
+}
+
+.section.about .about-grid .about-grid-item.person {
+  position: relative;
+}
+
+.section.about .about-grid .about-grid-item.person img {
+  aspect-ratio: 1;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+.section.about .about-grid .about-grid-item.person .person-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-accent);
+  width: 75%;
+  font-family: "Montserrat";
+  font-weight: 800;
+  color: var(--color-dark);
+  font-size: 1rem;
+  padding: 1rem 2rem;
+}
+
+.section.about .about-grid .about-grid-item.person .person-info .job {
+  font-weight: 500;
+  color: white;
+  margin-top: .75rem;
+}
+
+.section.about .about-grid .about-grid-item.infos {
+  text-align: center;
+}
+
+.section.about .about-grid .about-grid-item.infos h3 {
+  font-size: 2rem;
+  margin-bottom: 1.75rem;
+}
+
+.section.about .about-grid .about-grid-item.infos .read-more {
+  display: block;
+  font-size: 1rem;
+  color: var(--color-dark);
+  text-decoration: none;
+  margin-top: 2.75rem;
+}
+
+.section.about .about-grid .about-grid-item.infos .read-more:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+  .section.about .about-grid {
+    grid-template-areas:
+      "person1 person2"
+      "infos infos";
+  }
+
+  .section.about .about-grid .about-grid-item {
+    margin: 0;
+  }
+
+  .section.about .about-grid .about-grid-item.infos {
+    max-width: 448px;
+    margin: 0 auto;
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
+  .section.about .about-grid {
+    grid-template-areas: "person1 person2 infos";
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .section.about .about-grid .about-grid-item.person {
+    margin: 0;
+  }
+
+  .section.about .about-grid .about-grid-item.infos {
+    border: 4px solid #fdfdfd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2.25rem;
+  }
 }
 
 /*----FOOTER----*/
@@ -203,14 +341,13 @@ h2 {
 
 
 .navbar,
-/* .header, */
-/* .portfolio, */
+.header,
+.portfolio,
 .partners,
-.about,
+/* .about, */
 .blog,
 .contact,
 /* .footer,  */
-#dev-mode
-{
+#dev-mode {
   display: none;
 }
