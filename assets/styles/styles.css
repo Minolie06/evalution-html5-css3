@@ -6,6 +6,7 @@
   --color-accent: #ffe600;
   --color-hover: #fde293;
   --color-dark: #1e1e1e;
+  --color-light: #fdfdfd;
 }
 
 img {
@@ -14,7 +15,10 @@ img {
 
 body {
   font-family: 'Myriad Pro', sans-serif;
-  margin: 2rem 2rem 0 2rem;
+  padding: 2rem 2rem 0 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*----FONTS----*/
@@ -82,11 +86,31 @@ h3~.subtitle {
 }
 
 @media screen and (min-width: 768px) {
-  
+
   .text-center-mobile {
     text-align: left;
   }
 }
+
+.overlay {
+  background-color: rgba(255, 230, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  visibility: hidden;
+}
+
+/* replace by js */
+/* .section.portfolio .portfolio-grid .portfolio-grid-item:hover .overlay {
+  visibility: visible;
+} */
 
 /*----NAVBAR ----*/
 
@@ -170,21 +194,6 @@ h3~.subtitle {
   position: relative;
 }
 
-.section.portfolio .portfolio-grid .portfolio-grid-item .overlay {
-  background-color: rgba(255, 230, 0, 0.7);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  visibility: hidden;
-}
-
 .section.portfolio .portfolio-grid .portfolio-grid-item .overlay p {
   font-family: "Montserrat";
   font-weight: 500;
@@ -198,10 +207,6 @@ h3~.subtitle {
 }
 
 
-.section.portfolio .portfolio-grid .portfolio-grid-item:hover .overlay {
-  visibility: visible;
-
-}
 
 .section.portfolio .portfolio-grid .portfolio-grid-item img {
   object-fit: cover;
@@ -241,7 +246,7 @@ h3~.subtitle {
 }
 
 .section.about .about-grid .about-grid-item {
-  margin: 0 6rem;
+  margin: 0 3rem;
 }
 
 .section.about .about-grid .about-grid-item.person {
@@ -294,6 +299,12 @@ h3~.subtitle {
   text-decoration: underline;
 }
 
+@media screen and (min-width: 640px) {
+  .section.about .about-grid .about-grid-item {
+    margin: 0 6rem;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .section.about .about-grid {
     grid-template-areas:
@@ -323,7 +334,7 @@ h3~.subtitle {
   }
 
   .section.about .about-grid .about-grid-item.infos {
-    border: 4px solid #fdfdfd;
+    border: 4px solid var(--color-light);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -331,12 +342,91 @@ h3~.subtitle {
   }
 }
 
+/*----BLOG----*/
+
+.section.blog {
+  background: var(--color-light);
+  box-shadow: 0 0 0 100vmax var(--color-light);
+  clip-path: inset(0 -100vmax);
+}
+
+.section.blog .blog-grid {
+  margin-top: 2.375rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.section.blog .blog-grid .blog-grid-item {
+  background-color: white;
+}
+
+.section.blog .blog-grid .blog-grid-item .blog-grid-item-illustration {
+  position: relative;
+  font-size: 2rem;
+  color: #1e1e1e;
+  font-weight: 800;
+  font-family: "Montserrat";
+}
+
+.section.blog .blog-grid .blog-grid-item .blog-grid-item-img {
+  aspect-ratio: 465/353;
+  object-fit: cover;
+  vertical-align: bottom;
+}
+
+.section.blog .blog-grid .blog-grid-item .blog-grid-item-description {
+  padding: 1.875rem;
+
+}
+
+.section.blog .blog-grid .blog-grid-item .blog-grid-item-description h3 {
+  text-transform: uppercase;
+}
+
+.section.blog .blog-grid .blog-grid-item .blog-grid-item-description .subtitle {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: black;
+  font-weight: 500;
+  font-family: "Montserrat";
+
+}
+
+.section.blog .blog-grid .blog-grid-item .blog-grid-item-description .blog-grid-item-date {
+  font-size: 1rem;
+  color: var(--color-dark);
+  font-weight: 500;
+  font-family: "Montserrat";
+  margin-top: .75rem;
+
+}
+
+
+@media screen and (min-width: 640px) {
+  .section.blog .blog-grid .blog-grid-item {
+    margin: 0 6rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .section.blog .blog-grid .blog-grid-item {
+    margin: 0;
+  }
+
+  .section.blog .blog-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 /*----FOOTER----*/
 
 .footer {
-  background-color: var(--color-dark);
   min-height: 200px;
-  margin: 0 -2rem;
+  background: var(--color-dark);
+  box-shadow: 0 0 0 100vmax var(--color-dark);
+  clip-path: inset(0 -100vmax);
 }
 
 
@@ -345,7 +435,7 @@ h3~.subtitle {
 .portfolio,
 .partners,
 /* .about, */
-.blog,
+/* .blog, */
 .contact,
 /* .footer,  */
 #dev-mode {
