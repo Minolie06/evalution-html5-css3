@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  --color-accent: #fde293;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  font-family: 'Myriad Pro', sans-serif;
+}
+
+/*----TEXT STYLING----*/
+
+h1 {
+  font-family: "Montserrat";
+  font-size: 3.125rem;
+  line-height: 3.875rem;
+  font-weight: 800;
+  color: #1e1e1e;
+  text-align: center;
+}
+
+h2 {
+  font-family: "Myriad Pro";
+  font-size: 2.875rem;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 3.75rem;
+    line-height: 5rem;
+  }
+}
