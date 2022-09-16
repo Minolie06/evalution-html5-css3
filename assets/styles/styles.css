@@ -4,6 +4,7 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
   --color-accent: #fde293;
+  --color-dark: #1e1e1e;
 }
 
 img {
@@ -12,17 +13,22 @@ img {
 
 body {
   font-family: 'Myriad Pro', sans-serif;
+  margin: 2rem 2rem 0 2rem;
 }
 
-/*----TEXT STYLING----*/
+/*----FONTS----*/
 
 h1 {
   font-family: "Montserrat";
   font-size: 3.125rem;
   line-height: 3.875rem;
   font-weight: 800;
-  color: #1e1e1e;
-  text-align: center;
+  color: var(--color-dark);
+}
+
+h1~.subtitle {
+  font-size: 1.25rem;
+  font-family: "Myriad Pro";
 }
 
 h2 {
@@ -36,4 +42,36 @@ h2 {
     font-size: 3.75rem;
     line-height: 5rem;
   }
+}
+
+/*----NAVBAR ----*/
+
+
+/*----HEADER----*/
+
+.header {
+  margin-top: 4.125rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.header .title~.subtitle {
+  margin: 1.875rem 0;
+}
+
+.header .header-img {
+  background-image: url("../images/verne-ho-0LAJfSNa-xQ-unsplash.jpg");
+  aspect-ratio: 1.947;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 979px;
+}
+
+/*----FOOTER----*/
+
+.footer {
+  background-color: var(--color-dark);
+  min-height: 200px;
+  margin: 0 -2rem;
 }
