@@ -115,10 +115,13 @@ h3~.subtitle {
   visibility: hidden;
 }
 
+.overlay.visible {
+  visibility: visible;
+}
+
 /* replace by js */
 /* .section.portfolio .portfolio-grid .portfolio-grid-item:hover .overlay {
   visibility: visible;
-} */
 
 /*----NAVBAR ----*/
 
