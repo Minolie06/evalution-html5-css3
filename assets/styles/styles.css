@@ -178,6 +178,10 @@ h3~.subtitle {
   background-size: 979px;
 }
 
+.header .header-link-contact {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   .header {
     flex-direction: row;
@@ -191,6 +195,10 @@ h3~.subtitle {
   .header .header-img {
     width: 50%;
     background-size: cover;
+  }
+
+  .header .header-link-contact {
+    display: inline-block;
   }
 
 }
@@ -258,6 +266,29 @@ h3~.subtitle {
   }
 
 }
+
+/*----PARNERS----*/
+
+.section.partners {
+  background: var(--color-light);
+  box-shadow: 0 0 0 100vmax var(--color-light);
+  clip-path: inset(0 -100vmax);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  row-gap: 4rem;
+}
+
+.section.partners .partner-item {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .section.partners {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
 
 /*----ABOUT----*/
 
