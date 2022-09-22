@@ -79,10 +79,14 @@ h3~.subtitle {
   font-family: "Montserrat";
   font-size: 1rem;
   font-weight: 500;
+  color: var(--color-dark);
+  text-decoration: none;
+  display: inline-block;
 }
 
 .btn:hover {
   background-color: var(--color-hover);
+  cursor: pointer;
 }
 
 .text-center-mobile {
@@ -146,6 +150,13 @@ h3~.subtitle {
   color: var(--color-dark);
 }
 
+@media screen and (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+}
 
 /*----HEADER----*/
 
@@ -165,6 +176,23 @@ h3~.subtitle {
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 979px;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .header .header-text {
+    width: 50%;
+  }
+
+  .header .header-img {
+    width: 50%;
+    background-size: cover;
+  }
+
 }
 
 /*----PORTFOLIO----*/
@@ -222,6 +250,13 @@ h3~.subtitle {
 .section.portfolio .portfolio-btn-more {
   margin: 0 auto;
   display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .section.portfolio .portfolio-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
 }
 
 /*----ABOUT----*/
@@ -426,16 +461,25 @@ h3~.subtitle {
 
 /*----CONTACT----*/
 
-.section.contact .contact-form-wrapper {
+.section.contact .contact-form-title {
   margin-top: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
+}
+
+.section.contact .contact-form-wrapper .btn {
+  width: fit-content;
+}
+
+.section.contact .contact-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .section.contact .contact-form-wrapper input,
 .section.contact .contact-form-wrapper textarea {
   width: 100%;
   display: block;
-  margin-bottom: 2rem;
   border: none;
   padding: 1rem 1.25rem;
   background-color: var(--color-light);
@@ -445,6 +489,11 @@ h3~.subtitle {
   font-weight: 500;
   font-family: "Montserrat";
 }
+
+.section.contact .contact-form-wrapper input {
+  margin-bottom: 1rem;
+}
+
 .section.contact .contact-form-wrapper input::placeholder,
 .section.contact .contact-form-wrapper textarea::placeholder {
   font-size: 1rem;
@@ -458,7 +507,7 @@ h3~.subtitle {
   resize: none;
 }
 
-.section.contact .contact-geo-infos img {
+.section.contact .contact-map {
   object-fit: none;
 }
 
@@ -487,6 +536,24 @@ h3~.subtitle {
 
 .section.contact .contact-social .contact-social-item {
   margin: 0 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .section.contact .contact-form-wrapper .btn {
+    order: 1;
+    margin: 0;
+  }
+
+  .section.contact .contact-form-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .section.contact .contact-form-wrapper form,
+  .section.contact .contact-form-wrapper img {
+    width: calc(50% - 1rem);
+  }
+
 }
 
 /*----FOOTER----*/
